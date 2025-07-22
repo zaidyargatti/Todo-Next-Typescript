@@ -70,7 +70,9 @@ npm run dev
 💻 Frontend Setup (Next.js + Tailwind + i18n)
 cd frontend
 npm install
+
 # Start dev server
 npm run dev
+and use localhost on 4000
 
 # Accessible at: https://todo-next-typescript-eight.vercel.app/login
