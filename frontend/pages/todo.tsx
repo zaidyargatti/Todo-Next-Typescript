@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from '../services/Axios';
 import { toast } from 'react-toastify';
@@ -14,24 +14,21 @@ interface Todo {
   duedate: string;
 }
 
+interface TaskForm {
+  task: string;
+  duedate: string;
+}
+
 export default function TodoPage() {
   const { user, token, logout, loading } = useAuth();
   const router = useRouter();
   const [todos, setTodos] = useState<Todo[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [taskLoading, setTaskLoading] = useState(false);
-  const { register, handleSubmit, reset, setValue } = useForm();
+  const { register, handleSubmit, reset, setValue } = useForm<TaskForm>();
   const { t } = useTranslation('common');
 
-  useEffect(() => {
-    if (!loading && !user) {
-      router.replace('/login');
-    } else if (!loading && user) {
-      fetchTodos();
-    }
-  }, [user, loading]);
-
-  const fetchTodos = async () => {
+  const fetchTodos = useCallback(async () => {
     try {
       const res = await axios.get('/todo/get-todos', {
         headers: { Authorization: `Bearer ${token}` },
@@ -40,9 +37,17 @@ export default function TodoPage() {
     } catch {
       toast.error('Failed to fetch todos');
     }
-  };
+  }, [token]);
 
-  const onSubmit = async (data: any) => {
+  useEffect(() => {
+    if (!loading && !user) {
+      router.replace('/login');
+    } else if (!loading && user) {
+      fetchTodos();
+    }
+  }, [user, loading, router, fetchTodos]);
+
+  const onSubmit = async (data: TaskForm) => {
     setTaskLoading(true);
     try {
       if (editingId) {
@@ -90,7 +95,9 @@ export default function TodoPage() {
     <div className="min-h-screen bg-gray-100 px-4 py-8">
       <div className="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-blue-600">{t('welcome', { name: user.name })}</h1>
+          <h1 className="text-2xl font-bold text-blue-600">
+            {t('welcome', { name: user.name })}
+          </h1>
           <button
             onClick={logout}
             className="text-red-600 hover:underline text-sm"
@@ -115,7 +122,7 @@ export default function TodoPage() {
             className="bg-blue-600 text-white w-full py-2 rounded-md hover:bg-blue-700 transition"
             disabled={taskLoading}
           >
-            {taskLoading ? t('loading') : (editingId ? t('update_task') : t('add_task'))}
+            {taskLoading ? t('loading') : editingId ? t('update_task') : t('add_task')}
           </button>
         </form>
 
@@ -157,7 +164,7 @@ export default function TodoPage() {
   );
 }
 
-export const getServerSideProps = async ({ locale }: any) => ({
+export const getServerSideProps = async ({ locale }: { locale: string }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common'])),
   },
