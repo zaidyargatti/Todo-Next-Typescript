@@ -73,4 +73,4 @@ npm install
 # Start dev server
 npm run dev
 
-# Accessible at: http://localhost:4000
+# Accessible at: https://todo-next-typescript-eight.vercel.app/login
