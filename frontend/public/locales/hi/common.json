@@ -1,4 +1,6 @@
 {
+  
+  "welcome": "स्वागत है, {{name}}",
   "login": "लॉगिन करें",
   "signup": "साइन अप करें",
   "name": "नाम",
@@ -14,5 +16,17 @@
   "password_required": "पासवर्ड आवश्यक है",
   "name_required": "नाम आवश्यक है",
   "have_account": "पहले से खाता है?",
-  "no_account": "कोई खाता नहीं है?"
+  "no_account": "कोई खाता नहीं है?",
+  "delete": "हटाएं",
+"task_deleted": "कार्य हटा दिया गया",
+"fetch_failed": "टास्क लाने में विफल",
+"something_wrong": "कुछ गलत हो गया",
+"failed_to_delete": "हटाने में विफल",
+"update_task": "कार्य अपडेट करें",
+"add_task": "कार्य जोड़ें",
+"task_name": "कार्य का नाम",
+"due_date": "नियत तिथि",
+"no_tasks": "अभी तक कोई कार्य नहीं जोड़ा गया है।",
+"loading": "लोड हो रहा है..."
+
 }

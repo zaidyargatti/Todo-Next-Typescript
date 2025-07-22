@@ -1,4 +1,6 @@
 {
+  
+  "welcome": "Welcome, {{name}}",
   "login": "Login",
   "signup": "Signup",
   "name": "Name",
@@ -14,5 +16,17 @@
   "password_required": "Password is required",
   "name_required": "Name is required",
   "have_account": "Already have an account?",
-  "no_account": "Don’t have an account?"
+  "no_account": "Don’t have an account?",
+  "delete": "Delete",
+"task_deleted": "Task deleted",
+"fetch_failed": "Failed to fetch todos",
+"something_wrong": "Something went wrong",
+"failed_to_delete": "Failed to delete",
+"update_task": "Update Task",
+"add_task": "Add Task",
+"task_name": "Task name",
+"due_date": "Due date",
+"no_tasks": "No tasks added yet.",
+"loading": "Loading..."
+
 }
