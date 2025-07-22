@@ -1,0 +1,18 @@
+{
+  "login": "लॉगिन करें",
+  "signup": "साइन अप करें",
+  "name": "नाम",
+  "email": "ईमेल",
+  "password": "पासवर्ड",
+  "login_success": "लॉगिन सफल रहा",
+  "login_failed": "लॉगिन विफल रहा",
+  "signup_success": "साइन अप सफल रहा",
+  "signup_failed": "साइन अप विफल रहा",
+  "logging_in": "लॉगिन हो रहा है...",
+  "signing_up": "साइन अप हो रहा है...",
+  "email_required": "ईमेल आवश्यक है",
+  "password_required": "पासवर्ड आवश्यक है",
+  "name_required": "नाम आवश्यक है",
+  "have_account": "पहले से खाता है?",
+  "no_account": "कोई खाता नहीं है?"
+}

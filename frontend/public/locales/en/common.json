@@ -1,0 +1,18 @@
+{
+  "login": "Login",
+  "signup": "Signup",
+  "name": "Name",
+  "email": "Email",
+  "password": "Password",
+  "login_success": "Login successful",
+  "login_failed": "Login failed",
+  "signup_success": "Signup successful",
+  "signup_failed": "Signup failed",
+  "logging_in": "Logging in...",
+  "signing_up": "Signing up...",
+  "email_required": "Email is required",
+  "password_required": "Password is required",
+  "name_required": "Name is required",
+  "have_account": "Already have an account?",
+  "no_account": "Don’t have an account?"
+}
